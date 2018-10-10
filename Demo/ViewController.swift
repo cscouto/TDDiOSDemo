@@ -14,7 +14,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    func numberOfVowels(in string: String) -> Int {
+        let vowels: [Character] = ["A", "E", "I", "O", "U",
+                                   "a", "e", "i", "o", "u"]
+        return string.reduce(0) {
+            $0 + (vowels.contains($1) ? 1 : 0)
+        }
+    }
+    
+    func makeHeadline(from string: String) -> String {
+        return "This Is A Test Headline"
+    }
 
 }
 

@@ -11,8 +11,11 @@ import XCTest
 
 class DemoTests: XCTestCase {
 
+    var viewController: ViewController!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        viewController = ViewController()
     }
 
     override func tearDown() {
@@ -29,6 +32,23 @@ class DemoTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func test_numberOfVowels() {
+        let string = "Dominik"
+        
+        let numberOfVowels = viewController.numberOfVowels(in: string)
+        
+        XCTAssertEqual(numberOfVowels, 3, "Should find 3 vowels in Dominik")
+        
+    }
+    
+    func test_makeHeadline() {
+        let string = "this is A test headline"
+        
+        let headline = viewController.makeHeadline(from: string)
+        
+        XCTAssertEqual(headline, "This Is A Test Headline")
     }
 
 }
