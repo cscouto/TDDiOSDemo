@@ -15,6 +15,7 @@ class DemoTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        continueAfterFailure = false
         viewController = ViewController()
     }
 
@@ -35,20 +36,28 @@ class DemoTests: XCTestCase {
     }
     
     func test_numberOfVowels() {
-        let string = "Dominik"
+        let input = "Dominik"
+        let expectedOutput = 3
+        let numberOfVowels = viewController.numberOfVowels(in: input)
         
-        let numberOfVowels = viewController.numberOfVowels(in: string)
-        
-        XCTAssertEqual(numberOfVowels, 3, "Should find 3 vowels in Dominik")
+        XCTAssertEqual(numberOfVowels, expectedOutput, "Should find 3 vowels in Dominik")
         
     }
     
     func test_makeHeadline() {
-        let string = "this is A test headline"
+        let input = "this is A test headline"
+        let expectedOutput = "This Is A Test Headline"
+        let headline = viewController.makeHeadline(from: input)
         
-        let headline = viewController.makeHeadline(from: string)
+        XCTAssertEqual(headline, expectedOutput)
+    }
+    
+    func test_makeHeadline2() {
+        let input = "Here is another example"
+        let expectedOutput = "Here Is Another Example"
+        let headline = viewController.makeHeadline(from: input)
         
-        XCTAssertEqual(headline, "This Is A Test Headline")
+        XCTAssertEqual(headline, expectedOutput)
     }
 
 }

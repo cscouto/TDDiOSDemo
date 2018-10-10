@@ -24,7 +24,15 @@ class ViewController: UIViewController {
     }
     
     func makeHeadline(from string: String) -> String {
-        return "This Is A Test Headline"
+        let words = string.components(separatedBy: " ")
+        
+        let headline = words.map {
+            (word) -> String in
+            var mutableWord = word
+            let first = mutableWord.removeFirst()
+            return String(first).uppercased() + mutableWord
+        }
+        return headline.joined(separator: " ")
     }
 
 }
